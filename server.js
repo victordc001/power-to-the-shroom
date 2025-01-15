@@ -43,7 +43,7 @@
        //set mail option
        const mailOptions = {
         from: 'info@powertotheshroom.com',
-        to: 'robshumake@gmail.com',
+        to: 'shamanshu@soultribes.org',
         subject: 'NEW MEMBER FROM POWERTOTHESHROOM',
         text: `A new member has joined powertotheshroom.com! Their email is: ${demail}, and Their phone number is: ${dnumber}`,
       };

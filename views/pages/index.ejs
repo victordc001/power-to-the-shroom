@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <%- include(../partials/head.ejs) %>
+   <style> 
+
+   *{
+       padding:0;
+       margin:0;
+       box-sizing:border-box;
+   }
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1a365d;
+            padding: 1rem;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #eab308 !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .nav-link {
+            color: white !important;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #eab308 !important;
+        }
+
+        /* Logo styles */
+        .logo-shroom {
+            font-size: 0.8em;
+            vertical-align: super;
+            color: #eab308;
+        }
+
+        /* Existing styles */
+        .hero-section {
+            background-color: #1a365d;
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .cta-button {
+            background-color: #eab308;
+            color: black;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #ca8a04;
+            transform: translateY(-2px);
+        }
+        
+        .secondary-button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background-color: #1d4ed8; 
+            color:lightgrey;
+        }
+        
+        .mission-section, .lawsuit-section {
+            background-color: #f8fafc;
+            padding: 5rem 0;
+        }
+        
+        .join-section {
+            padding: 5rem 0;
+        }
+        
+        .footer {
+            background-color: #111827;
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .form-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        /* Add padding to account for fixed navbar */
+        body {
+            padding-top: 76px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+   <%- include(../partials/header.ejs) %>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Protect Religious Freedom in Detroit</h1>
+            <p class="lead mb-5">Join the Movement to Defend Sacred Practices and Religious Rights</p>
+            <button class="btn cta-button" onclick="scrollToForm()">Join the Tribe</button>
+        </div>
+    </header>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission-section">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Why We Fight</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="lead">
+                        Our mission at <strong>Powertotheshroom</strong> is to protect the religious rights of Detroit's diverse community. Religious freedom is under attack, and we're here to stand up for sacred practices, including the use of entheogens like sacred mushrooms, which are integral to many spiritual traditions.
+                    </p>
+                    <p class="lead">
+                        We believe in the right to worship freely without fear of government interference. Together, we can hold the City of Detroit accountable and ensure that every citizen's right to practice their faith is safeguarded.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Form Section -->
+    <section id="join-form" class="join-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="form-card">
+                        <h2 class="text-center fw-bold mb-4">Take Action Today</h2>
+                        <p class="text-center mb-4">
+                            Join the tribe to support this critical cause and receive our free guide:<br>
+                            <strong>"Defend Your Sacred Practices: A Guide to Religious Freedom in Detroit"</strong>
+                        </p>
+                        <form id="signupForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Full Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Phone Number" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="updates">
+                                <label class="form-check-label" for="updates">
+                                    I want to join the movement and receive updates
+                                </label>
+                            </div>
+                            <button type="submit" class="btn secondary-button w-100">Sign Up & Get Your Free Guide</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lawsuit Section -->
+    <section id="lawsuit" class="lawsuit-section">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">The Fight for Justice: Soul Tribes Ministries vs. The City of Detroit</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="lead mb-5">
+                        Soul Tribes Ministries, led by Shaman Shu, has filed a lawsuit against the City of Detroit for violating constitutional rights. The lawsuit highlights the unconstitutional raid on the Bushnell Church, where sacred practices were disrupted, and religious freedoms were trampled.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <button class="btn secondary-button w-100">Join the Lawsuit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn secondary-button w-100">Contact City Council</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <%- include(../partials/footer.ejs) %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll function for all nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function scrollToForm() {
+            document.getElementById('join-form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for joining! Check your email for the free guide.');
+        });
+
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -125,6 +125,19 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 2rem;  
+        } 
+
+           .dlogo{
+                      width:17%;
+                      height:auto;
+                 }
+
+
+        @media only screen and (max-width:600px) {
+                 .dlogo{
+                      width:30%;
+                      height:auto;
+                 }
         }
 
        
@@ -172,13 +185,13 @@
                         </p>
                         <form id="signupForm">
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Full Name" required>
+                                <input type="text" id="fname" class="form-control" placeholder="Full Name" required>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Email Address" required>
+                                <input type="email" id="femail" class="form-control" placeholder="Email Address" required>
                             </div>
                             <div class="mb-3">
-                                <input type="tel" class="form-control" placeholder="Phone Number" required>
+                                <input type="tel" id="fnumber" class="form-control" placeholder="Phone Number" required>
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="updates">
@@ -186,7 +199,7 @@
                                     I want to join the movement and receive updates
                                 </label>
                             </div>
-                            <button type="submit" class="btn secondary-button w-100">Sign Up & Get Your Free Guide</button>
+                            <button type="submit" id="fbtn" class="btn secondary-button w-100">Sign Up & Get Your Free Guide</button>
                         </form>
                     </div>
                 </div>
@@ -205,12 +218,9 @@
                         Soul Tribes Ministries, led by Shaman Shu, has filed a lawsuit against the City of Detroit for violating constitutional rights. The lawsuit highlights the unconstitutional raid on the Bushnell Church, where sacred practices were disrupted, and religious freedoms were trampled.
                     </p>
                     <div class="row g-3">
-                        <div class="col-md-6">
-                            <button class="btn secondary-button w-100">Join the Lawsuit</button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="btn secondary-button w-100">Contact City Council</button>
-                        </div>
+                        <div class="col-md-12">
+                            <a href='/document/complaint.pdf'> <button class="btn secondary-button w-100">Download PDF</button> </a> 
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -241,10 +251,56 @@
             });
         }
 
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('Thank you for joining! Check your email for the free guide.');
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();  
+            var fname = document.getElementById('fname').value; 
+            var femail = document.getElementById('femail').value;
+            var fnumber = document.getElementById('fnumber').value; 
+            var fbtn = document.getElementById('fbtn'); 
+            fbtn.innerHTML = 'Submitting..'; 
+            fbtn.style.opacity = '0.2';
+            fbtn.disabled = true; 
+
+            const data = {
+                 fnumber : fnumber,
+                 femail : femail,
+            }
+               try{
+    const response = await fetch('/subm', {
+          method : 'post',
+          body : JSON.stringify(data),
+          headers : {
+             'Content-Type': 'application/json',
+             Accept: 'application/json',
+          }
+    });  
+    if(!response.ok) {
+        throw response;
+    }        
+
+   setTimeout(()=>{ 
+    alert('Thank you for joining! Check your email for the free guide.');
+            fbtn.innerHTML = 'Sign Up & Get Your Free Guide';  
+            fbtn.style.opacity = '2';         
+            fbtn.disabled = false;  
+            var fname = document.getElementById('fname').value; 
+            var femail = document.getElementById('femail').value;
+            var fnumber = document.getElementById('fnumber').value; 
+            fname = ''; 
+            fnumber = '';
+            femail = '';
+   }, 3000);
+        
+            
+}
+
+            catch(err){
+              const error = await err.text(); 
+              fbtn.innerHTML = 'Sign Up & Get Your Free Guide';  
+            fbtn.style.opacity = '2';         
+            fbtn.disabled = false;
+              alert(error);
+            }
         });
 
         // Close mobile menu when clicking a link

@@ -8,13 +8,20 @@
        padding:0;
        margin:0;
        box-sizing:border-box;
-   } 
+   }   
 
+      /* Add padding to account for fixed navbar */
+      body {
+            padding-top: 76px;
+        }
+
+   body, p, h1, h2, h3, button{
+    font-family: "Noto Sans Newa", serif;
+   }
 
 
    /* for complaint.ejs */
-   .uniquePlate123 {
-            font-family: Arial, sans-serif;
+   .uniquePlate123 { 
             margin: 20px;
             padding: 20px;
             border: 1px solid #ccc;
@@ -28,10 +35,13 @@
         /* complaint end */
         
         /* Navbar Styles */
-        .navbar {
+        .navbar, .navbarcon{
             background-color: #1a365d;
-            padding: 1rem;
-        }
+            padding: 1rem; 
+            display:flex;
+            justify-content:space-between; 
+            min-width:100px; 
+        } 
 
         .navbar-brand {
             font-size: 1.5rem;
@@ -103,9 +113,6 @@
             padding: 5rem 0;
         }
         
-        .join-section {
-            padding: 5rem 0;
-        }
         
         .footer {
             background-color: #111827;
@@ -117,13 +124,10 @@
             background: white;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
+            padding: 2rem;  
         }
 
-        /* Add padding to account for fixed navbar */
-        body {
-            padding-top: 76px;
-        }
+       
     </style>
 </head>
 <body>
@@ -131,7 +135,7 @@
    <%- include('../partials/header.ejs') %>
     <!-- Hero Section -->
     <header class="hero-section">
-        <div class="container text-center">
+        <div style="padding-left:20px; padding-right:20px;" class="container text-center">
             <h1 class="display-4 fw-bold mb-4">Protect Religious Freedom in Detroit</h1>
             <p class="lead mb-5">Join the Movement to Defend Sacred Practices and Religious Rights</p>
             <button class="btn cta-button" onclick="scrollToForm()">Join the Tribe</button>
@@ -140,14 +144,14 @@
 
     <!-- Mission Section -->
     <section id="mission" class="mission-section">
-        <div class="container">
+        <div style="margin-left:20px; margin-right:20px; min-width:100px;">
             <h2 class="text-center fw-bold mb-5">Why We Fight</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <p class="lead">
+                    <p style="font-size:18.5px" class="lead">
                         Our mission at <strong>Powertotheshroom</strong> is to protect the religious rights of Detroit's diverse community. Religious freedom is under attack, and we're here to stand up for sacred practices, including the use of entheogens like sacred mushrooms, which are integral to many spiritual traditions.
                     </p>
-                    <p class="lead">
+                    <p style="font-size:18px;" class="lead">
                         We believe in the right to worship freely without fear of government interference. Together, we can hold the City of Detroit accountable and ensure that every citizen's right to practice their faith is safeguarded.
                     </p>
                 </div>
@@ -193,11 +197,11 @@
 
     <!-- Lawsuit Section -->
     <section id="lawsuit" class="lawsuit-section">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5">The Fight for Justice: Soul Tribes Ministries vs. The City of Detroit</h2>
+        <div style="margin-left:20px; margin-right:20px; min-width:100px;">
+            <h2 style="font-size:18.5px" class="text-center fw-bold mb-5">The Fight for Justice: Soul Tribes Ministries vs. The City of Detroit</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <p class="lead mb-5">
+                    <p style="font-size:18px" class="lead mb-5">
                         Soul Tribes Ministries, led by Shaman Shu, has filed a lawsuit against the City of Detroit for violating constitutional rights. The lawsuit highlights the unconstitutional raid on the Bushnell Church, where sacred practices were disrupted, and religious freedoms were trampled.
                     </p>
                     <div class="row g-3">
@@ -211,7 +215,7 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>   
 
     
     <%- include('../partials/complaint.ejs') %>  

@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
-    <%- include(../partials/head.ejs) %>
+    <%- include('../partials/head.ejs') %>
    <style> 
 
    *{
        padding:0;
        margin:0;
        box-sizing:border-box;
-   }
+   } 
+
+
+
+   /* for complaint.ejs */
+   .uniquePlate123 {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .uniqueCpt456 {
+            font-weight: bold;
+            color: #333;
+        }
+        /* complaint end */
+        
         /* Navbar Styles */
         .navbar {
             background-color: #1a365d;
@@ -110,7 +128,7 @@
 </head>
 <body>
     <!-- Navbar -->
-   <%- include(../partials/header.ejs) %>
+   <%- include('../partials/header.ejs') %>
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="container text-center">
@@ -170,7 +188,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>  
+
 
     <!-- Lawsuit Section -->
     <section id="lawsuit" class="lawsuit-section">
@@ -192,10 +211,13 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
+
+    
+    <%- include('../partials/complaint.ejs') %>  
 
     <!-- Footer -->
-    <%- include(../partials/footer.ejs) %>
+    <%- include('../partials/footer.ejs') %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>

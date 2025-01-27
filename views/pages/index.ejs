@@ -244,63 +244,23 @@
                 <div class="col-lg-9">
                     <div class="form-card">
                         <h2 class="text-center fw-bold mb-4">Take Action Today</h2>
+                         
+
                         <p class="text-center mb-4">
-                            Join the tribe to support this critical cause and receive our free guide:<br>
-                            <strong>Defend Your Sacred Practices: A Guide to Religious Freedom in Detroit</strong>
+                            Join Team 1billion to support this critical cause. Fill out the form below to make an impact:
                         </p>
-                       
-                        <div class="container mt-5">
-                            <form id="signupForm">
-                                <h3 class="text-center mb-4">Sign Up</h3>
-                                <div class="mb-3">
-                                    <input type="text" id="fname" class="form-control" placeholder="Full Name" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" id="femail" class="form-control" placeholder="Email Address" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="tel" id="fnumber" class="form-control" placeholder="Phone Number" required>
-                                </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="updates">
-                                    <label class="form-check-label" for="updates">
-                                        I want to join the movement and receive updates
-                                    </label>
-                                </div>
-                                <button type="submit" id="fbtn" class="btn secondary-button w-100">Sign Up & Get Your Free Guide</button>
-                            </form>
-                    
-                            <!-- Divider -->
-                            <div class="text-center my-4">
-                                <p class="text-muted">OR</p>
-                            </div>
-                    
-                            <!-- Button for JotForm -->
-                            <div class="text-center">
-                                <button id="jotFormBtn" class="btn btn-primary" onclick="openJotForm()">Open Extended Form</button>
-                            </div>
+                        <div class="jotform-container">
+                            <iframe
+                                src="https://form.jotform.com/250242956181052"
+                                width="100%"
+                                height="600px"
+                                style="border: none; border-radius: 10px; overflow: hidden;"
+                                allowfullscreen
+                                allow="clipboard-write"
+                            ></iframe>
                         </div>
-                    
-                        <!-- Modal for JotForm -->
-                        <div class="modal fade" id="jotFormModal" tabindex="-1" aria-labelledby="jotFormModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="jotFormModalLabel">Extended Form</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <iframe 
-                                            src="https://form.jotform.com/250242956181052" 
-                                            width="100%" 
-                                            height="500px" 
-                                            style="border: none;">
-                                        </iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
+
+                        
                     </div>
                 </div>
             </div>
@@ -535,18 +495,6 @@
                 }
             });
         });
-    </script> 
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Function to open JotForm in a modal
-    function openJotForm() {
-        const jotFormModal = new bootstrap.Modal(document.getElementById('jotFormModal'));
-        jotFormModal.show();
-    }
-</script>
-
+    </script>
 </body>
 </html>
